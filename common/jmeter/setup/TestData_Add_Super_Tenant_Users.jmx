@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Add Super Tenant Users" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -63,12 +63,12 @@
           </elementProp>
           <elementProp name="noOfUsers" elementType="Argument">
             <stringProp name="Argument.name">noOfUsers</stringProp>
-            <stringProp name="Argument.value">${__P(userCount,1000)}</stringProp>
+            <stringProp name="Argument.value">${__P(userCount,3000500)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="loopCount" elementType="Argument">
             <stringProp name="Argument.name">loopCount</stringProp>
-            <stringProp name="Argument.value">${__P(loopCount,1000)}</stringProp>
+            <stringProp name="Argument.value">${__P(loopCount,3000500)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="rampUpPeriod" elementType="Argument">
@@ -225,6 +225,26 @@
             &lt;xsd:claimURI&gt;http://wso2.org/claims/lastname&lt;/xsd:claimURI&gt;&#xd;
             &lt;xsd:value&gt;lastname_${usernamePrefix}${user_index}&lt;/xsd:value&gt;&#xd;
          &lt;/ser:claims&gt;&#xd;
+         &lt;ser:claims&gt;&#xd;
+            &lt;xsd:claimURI&gt;http://wso2.org/claims/mobile&lt;/xsd:claimURI&gt;&#xd;
+            &lt;xsd:value&gt;071${user_index}&lt;/xsd:value&gt;&#xd;
+         &lt;/ser:claims&gt;&#xd;
+         &lt;ser:claims&gt;&#xd;
+            &lt;xsd:claimURI&gt;http://wso2.org/claims/device_id&lt;/xsd:claimURI&gt;&#xd;
+            &lt;xsd:value&gt;12345&lt;/xsd:value&gt;&#xd;
+         &lt;/ser:claims&gt;&#xd;
+         &lt;ser:claims&gt;&#xd;
+            &lt;xsd:claimURI&gt;http://wso2.org/claims/emailaddress&lt;/xsd:claimURI&gt;&#xd;
+            &lt;xsd:value&gt;test@gmail.com&lt;/xsd:value&gt;&#xd;
+         &lt;/ser:claims&gt;&#xd;
+         &lt;ser:claims&gt;&#xd;
+            &lt;xsd:claimURI&gt;http://wso2.org/claims/country&lt;/xsd:claimURI&gt;&#xd;
+            &lt;xsd:value&gt;usa&lt;/xsd:value&gt;&#xd;
+         &lt;/ser:claims&gt;&#xd;
+         &lt;ser:claims&gt;&#xd;
+            &lt;xsd:claimURI&gt;http://wso2.org/claims/gender&lt;/xsd:claimURI&gt;&#xd;
+            &lt;xsd:value&gt;male&lt;/xsd:value&gt;&#xd;
+         &lt;/ser:claims&gt;&#xd;
        &#xd;
          &lt;ser:profileName&gt;default&lt;/ser:profileName&gt;&#xd;
          &lt;ser:requirePasswordChange&gt;false&lt;/ser:requirePasswordChange&gt;&#xd;
@@ -280,7 +300,7 @@
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -313,6 +333,46 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
     </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
   </hashTree>
 </jmeterTestPlan>
